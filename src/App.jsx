@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader/AppHeader';
 
 function App() {
   return (
-    <div className="App">
+    <div className="layout">
       <AppHeader />
       <Main />
     </div>

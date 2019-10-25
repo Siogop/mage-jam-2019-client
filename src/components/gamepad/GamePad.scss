@@ -1,19 +1,16 @@
-// .game-pad {
-//     height: 200px;
-//     position: relative;
-//     border: 3px solid green;
-//   }
-  
-// .game-pad .button-container {
-//     margin: 0;
-//     position: absolute;
-//     top: 50%;
-//     -ms-transform: translateY(-50%);
-//     transform: translateY(-50%);
-// }
+.game-pad {
+}
 
 .game-pad .button-container {
-    width: 33%;
-    display: inline-block;
-    height: 100%
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.game-pad .button-container {
+  width: 33%;
+  display: inline-block;
+  height: 100%;
 }
