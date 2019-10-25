@@ -10,7 +10,6 @@ class Main extends React.Component {
     this.ws = new WebSocket(WS_ADDRESS);
   }
 
-
   componentDidMount() {
     this.ws.onopen = () => {
       // on connecting, do nothing but log it to the console
