@@ -1,11 +1,13 @@
 import React from 'react';
-import GamePad from './GamePad';
+import GamePad from '../gamepad/GamePad';
+
+const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'ws://bf3a65f7.ngrok.io/game';
 
 class Main extends React.Component {
   // instance of websocket connection as a class property
   constructor(props) {
     super(props);
-    this.ws = new WebSocket('ws://localhost:3000/ws');
+    this.ws = new WebSocket(WS_ADDRESS);
   }
 
 
@@ -30,7 +32,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <GamePad webSocket={this.ws} />
+      <div className="main">
+        <GamePad webSocket={this.ws} />
+      </div>
     );
   }
 }
