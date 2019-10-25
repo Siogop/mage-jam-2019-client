@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
+html, body, #root {
+    height: 100%;
+}
+
 .layout { 
     font-family: "Press Start 2P";
-    padding: 10px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
