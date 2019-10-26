@@ -8,7 +8,7 @@ function getProgressColor(value) {
     return 'is-warning';
   } if (value <= 60) {
     return 'is-success';
-  } if (value <= 60) {
+  } if (value <= 80) {
     return 'is-primary';
   }
   return '';
