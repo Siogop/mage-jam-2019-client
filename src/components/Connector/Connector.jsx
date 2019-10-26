@@ -20,7 +20,7 @@ class Connector extends React.Component {
     const { webSocket } = this.props;
     const { team } = this.state;
     const messageData = data;
-    messageData.arguments.push(team);
+    messageData.arguments = [team];
     const message = {
       data: JSON.stringify(messageData),
     };

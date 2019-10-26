@@ -4,7 +4,7 @@ import GamePad from '../GamePad/GamePad';
 import Connector from '../Connector/Connector';
 import Character from '../Character/Character';
 
-const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'wss://ed0e4e1b.ngrok.io/game';
+const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'ws://localhost:5000/game';
 
 class Main extends React.Component {
   // instance of websocket connection as a class property
