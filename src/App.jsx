@@ -5,13 +5,14 @@ import './styles/global.scss';
 import '../node_modules/nes.css/css/nes.min.css';
 import AppHeader from './components/AppHeader/AppHeader';
 import AppFooter from './components/AppFooter/AppFooter';
+import Layout from './components/Layout/Layout';
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      phase: 0,
+      phase: 1,
     };
 
     this.renderController = this.renderController.bind(this);
@@ -20,21 +21,19 @@ export default class App extends Component {
 
   renderTutorial() {
     return (
-      <div>
+      <Layout>
         tutorial
-      </div>
+      </Layout>
     );
   }
 
   renderController() {
     return (
-      <div className="layout">
-        <div className="layout__screen">
-          <AppHeader />
-          <Main />
-          <AppFooter />
-        </div>
-      </div>
+      <Layout>
+        <AppHeader />
+        <Main />
+        <AppFooter />
+      </Layout>
     );
   }
 
