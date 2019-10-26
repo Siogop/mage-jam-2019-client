@@ -41,10 +41,8 @@ class Main extends React.Component {
         this.setState({
           started: true,
         });
-      } else if (message.messageType === 0) {
-        if (message.data.length <= 14) { // dont ask why plis
-          setAppTitle(message.data);
-        }
+      } else if (message.messageType === 3) {
+        setAppTitle(message.data);
       }
     };
 
