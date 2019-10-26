@@ -8,10 +8,13 @@
     width: 200px;
     padding: 8px;
     text-align:center;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    justify-content: center;
+    
+    &.nes-balloon {
+      display: flex;
+      flex-direction: center;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .nes-smartphone {

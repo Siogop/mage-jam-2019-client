@@ -12,11 +12,10 @@ class Connector extends React.Component {
       team: '',
     };
 
-    this.onJoinClick = this.onJoinClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  onJoinClick() {
+  componentDidMount() {
     const { webSocket } = this.props;
     const { team } = this.state;
     const messageData = data;
@@ -33,17 +32,7 @@ class Connector extends React.Component {
   }
 
   render() {
-    const { team } = this.state;
-    return (
-      <div className="connector">
-        <div className="connector-form nes-field">
-          <input className="nes-input" id="team-input" type="text" name="name" value={team} onChange={this.handleChange} />
-          <div className="nes-btn is-primary" role="button" tabIndex={0} onClick={this.onJoinClick}>
-            <div>Join</div>
-          </div>
-        </div>
-      </div>
-    );
+    return null;
   }
 }
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GamePad from '../GamePad/GamePad';
 import Connector from '../Connector/Connector';
 import Character from '../Character/Character';
+import Tutorial from '../Tutorial/Tutorial';
 
 const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'ws://localhost:5000/game';
 
@@ -60,10 +61,11 @@ class Main extends React.Component {
     const {
       connected, joined, disconnected, started,
     } = this.state;
-    const { phase } = this.props;
+    const { phase, nextPhase } = this.props;
     return (
       <main className="main">
         {connected && !joined && phase > 0 && <Connector webSocket={this.ws} />}
+        {phase === 0 && <Tutorial nextPhase={nextPhase} />}
         {joined && connected && started && phase > 0 && <GamePad webSocket={this.ws} />}
         {disconnected && phase > 0 && (
           <Character>
@@ -82,6 +84,7 @@ class Main extends React.Component {
 
 Main.propTypes = {
   phase: PropTypes.number.isRequired,
+  nextPhase: PropTypes.func.isRequired,
 };
 
 export default Main;

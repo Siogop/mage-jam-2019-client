@@ -34,7 +34,7 @@ export default class Tutorial extends Component {
     this.increaseProgress();
     if (progress < 100) {
       this.increaseProgress(2);
-      setTimeout(this.loopProgress, 3 * Math.random(300));
+      setTimeout(this.loopProgress, 300 * Math.random(300));
     } else if (progress >= 100) {
       nextPhase();
     }
@@ -43,12 +43,12 @@ export default class Tutorial extends Component {
   render() {
     const { progress } = this.state;
     return (
-      <main>
+      <>
         <Character>
           { progress < 50 ? (<p>For best experience use a phone.</p>) : <i className="nes-smartphone change-orientation" />}
         </Character>
         <ProgressBar value={progress} />
-      </main>
+      </>
     );
   }
 }
