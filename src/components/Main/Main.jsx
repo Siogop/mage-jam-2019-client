@@ -42,7 +42,7 @@ class Main extends React.Component {
           started: true,
         });
       } else if (message.messageType === 0) {
-        if (message.data.length <= 14) {
+        if (message.data.length <= 14) { // dont ask why plis
           setAppTitle(message.data);
         }
       }
