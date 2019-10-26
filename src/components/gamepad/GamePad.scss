@@ -1,16 +1,25 @@
 .game-pad {
-}
-
-.game-pad .button-container {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.game-pad .button-container {
-  width: 33%;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+
+  &__controller {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  .nes-btn {
+    //overwrite nes-btn padding
+    padding: 14px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nes-container {
+    padding: 2px;
+  }
 }
