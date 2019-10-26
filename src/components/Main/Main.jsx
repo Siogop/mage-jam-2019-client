@@ -14,6 +14,7 @@ class Main extends React.Component {
       connected: false,
       joined: false,
       disconnected: false,
+      started: false,
     };
     console.log('Main!');
     this.ws = new WebSocket(WS_ADDRESS);
@@ -32,10 +33,15 @@ class Main extends React.Component {
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data);
       console.log(message);
-      if (message.messageType === 4) {
+      if (message.messageType === 2) {
         console.log('joined');
         this.setState({
           joined: true,
+        });
+      } else if (message.messageType === 0) {
+        console.log('started');
+        this.setState({
+          started: true,
         });
       }
     };
@@ -51,15 +57,22 @@ class Main extends React.Component {
   }
 
   render() {
-    const { connected, joined, disconnected } = this.state;
+    const {
+      connected, joined, disconnected, started,
+    } = this.state;
     const { phase } = this.props;
     return (
       <main className="main">
         {connected && !joined && phase > 0 && <Connector webSocket={this.ws} />}
-        {joined && connected && phase > 0 && <GamePad webSocket={this.ws} />}
+        {joined && connected && started && phase > 0 && <GamePad webSocket={this.ws} />}
         {disconnected && phase > 0 && (
           <Character>
             <p>Can&apos;t connect to the server.</p>
+          </Character>
+        )}
+        {joined && connected && !started && phase > 0 && (
+          <Character>
+            <p>Waiting for players.</p>
           </Character>
         )}
       </main>
