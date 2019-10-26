@@ -42,7 +42,8 @@ class Main extends React.Component {
           started: true,
         });
       } else if (message.messageType === 3) {
-        setAppTitle(message.data);
+        const [name, numPlayers] = message.data.split(' ');
+        setAppTitle(`${name} ${numPlayers}/16`);
       }
     };
 
