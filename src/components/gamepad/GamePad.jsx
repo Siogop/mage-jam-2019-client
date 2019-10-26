@@ -5,6 +5,7 @@ import './GamePad.scss';
 
 const MOVE_LEFT_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"left\\"]}"}';
 const MOVE_RIGHT_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"right\\"]}"}';
+const MOVE_CLEAR_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"clear\\"]}"}';
 const ATTACK_MESSAGE = '{"data":"{\\"methodName\\":\\"Attack\\",\\"arguments\\":[\\"right\\"]}"}';
 
 class GamePad extends React.Component {
@@ -14,6 +15,7 @@ class GamePad extends React.Component {
     this.onLeftClick = this.onLeftClick.bind(this);
     this.onRightClick = this.onRightClick.bind(this);
     this.onAttackCLick = this.onAttackCLick.bind(this);
+    this.onMoveClear = this.onMoveClear.bind(this);
   }
 
   onLeftClick() {
@@ -34,18 +36,24 @@ class GamePad extends React.Component {
     webSocket.send(MOVE_RIGHT_MESSAGE); // send data to the server
   }
 
+  onMoveClear() {
+    const { webSocket } = this.props;
+    console.log(MOVE_CLEAR_MESSAGE);
+    webSocket.send(MOVE_CLEAR_MESSAGE); // send data to the server
+  }
+
   render() {
     return (
       <div className="game-pad">
         <div className="game-pad__controller">
           <div className="nes-btn is-primary">
-            <div role="button" tabIndex={0} onClick={this.onLeftClick}>Left</div>
+            <div role="button" tabIndex={0} onTouchStart={this.onLeftClick} onTouchEnd={this.onMoveClear}>Left</div>
           </div>
           <div className="nes-btn is-error">
             <div role="button" tabIndex={0} onClick={this.onAttackCLick}>Attack</div>
           </div>
           <div className="nes-btn is-primary">
-            <div role="button" tabIndex={0} onClick={this.onRightClick}>Right</div>
+            <div role="button" tabIndex={0} onTouchStart={this.onRightClick} onTouchEnd={this.onMoveClear}>Right</div>
           </div>
         </div>
       </div>
