@@ -1,6 +1,5 @@
 import React from 'react';
 import GamePad from '../GamePad/GamePad';
-import './Main.scss';
 
 const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'ws://bf3a65f7.ngrok.io/game';
 

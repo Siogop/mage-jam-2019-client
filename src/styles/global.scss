@@ -9,6 +9,11 @@ html, body, #root, .layout {
     height: 100%;
 }
 
+main {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
 .layout { 
     display: flex;
     flex-direction: column;

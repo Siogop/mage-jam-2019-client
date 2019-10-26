@@ -6,13 +6,14 @@ import '../node_modules/nes.css/css/nes.min.css';
 import AppHeader from './components/AppHeader/AppHeader';
 import AppFooter from './components/AppFooter/AppFooter';
 import Layout from './components/Layout/Layout';
+import Tutorial from './components/Tutorial/Tutorial';
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      phase: 1,
+      phase: 0,
     };
 
     this.renderController = this.renderController.bind(this);
@@ -22,7 +23,9 @@ export default class App extends Component {
   renderTutorial() {
     return (
       <Layout>
-        tutorial
+        <AppHeader />
+        <Tutorial />
+        <AppFooter />
       </Layout>
     );
   }
