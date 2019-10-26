@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import Character from '../Character/Character';
 
 export default class Tutorial extends Component {
   constructor() {
@@ -38,7 +39,7 @@ export default class Tutorial extends Component {
     const { progress } = this.state;
     return (
       <main>
-        <i className="nes-octocat animate" />
+        <Character />
         <ProgressBar value={progress} />
       </main>
     );

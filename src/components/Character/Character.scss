@@ -1,0 +1,9 @@
+.character {
+  display: flex;
+  align-items: flex-end;
+
+  &__balloon {
+    max-width: 260px;
+    padding: 8px;
+  }
+}
