@@ -46,14 +46,14 @@ class GamePad extends React.Component {
     return (
       <div className="game-pad">
         <div className="game-pad__controller">
-          <div className="nes-btn is-primary">
-            <div role="button" tabIndex={0} onTouchStart={this.onLeftClick} onTouchEnd={this.onMoveClear}>Left</div>
+          <div className="nes-btn is-primary" role="button" tabIndex={0} onTouchStart={this.onLeftClick} onTouchEnd={this.onMoveClear}>
+            <div>Left</div>
           </div>
-          <div className="nes-btn is-error">
-            <div role="button" tabIndex={0} onClick={this.onAttackCLick}>Attack</div>
+          <div className="nes-btn is-error" role="button" tabIndex={0} onClick={this.onAttackCLick}>
+            <div>Attack</div>
           </div>
-          <div className="nes-btn is-primary">
-            <div role="button" tabIndex={0} onTouchStart={this.onRightClick} onTouchEnd={this.onMoveClear}>Right</div>
+          <div className="nes-btn is-primary" role="button" tabIndex={0} onTouchStart={this.onRightClick} onTouchEnd={this.onMoveClear}>
+            <div>Right</div>
           </div>
         </div>
       </div>
