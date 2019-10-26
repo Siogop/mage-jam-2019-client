@@ -5,8 +5,8 @@ import './GamePad.scss';
 
 const MOVE_LEFT_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"left\\"]}"}';
 const MOVE_RIGHT_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"right\\"]}"}';
-const MOVE_CLEAR_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"clear\\"]}"}';
-const ATTACK_MESSAGE = '{"data":"{\\"methodName\\":\\"Attack\\",\\"arguments\\":[\\"right\\"]}"}';
+const MOVE_CLEAR_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"forward\\"]}"}';
+const ATTACK_MESSAGE = '{"data":"{\\"methodName\\":\\"Move\\",\\"arguments\\":[\\"attack\\"]}"}';
 
 class GamePad extends React.Component {
   constructor(props) {
