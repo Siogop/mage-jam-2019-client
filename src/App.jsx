@@ -8,9 +8,11 @@ import AppFooter from './components/AppFooter/AppFooter';
 function App() {
   return (
     <div className="layout">
-      <AppHeader />
-      <Main />
-      <AppFooter />
+      <div className="layout__screen">
+        <AppHeader />
+        <Main />
+        <AppFooter />
+      </div>
     </div>
   );
 }
