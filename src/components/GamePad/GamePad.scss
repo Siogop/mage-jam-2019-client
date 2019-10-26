@@ -26,6 +26,10 @@
     align-items: center;
     margin: 8px;
 
+    &:active {
+      background-color: #f7d51d;
+    }
+
     &.is-error {
       @include rwd(phone) {          
         order: -2;

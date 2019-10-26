@@ -34,12 +34,12 @@ class Main extends React.Component {
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data);
       console.log(message);
-      if (message.messageType === 2) {
+      if (message.messageType === 1) {
         console.log('joined');
         this.setState({
           joined: true,
         });
-      } else if (message.messageType === 0) {
+      } else if (message.messageType === 2) {
         console.log('started');
         this.setState({
           started: true,
@@ -85,6 +85,7 @@ class Main extends React.Component {
 Main.propTypes = {
   phase: PropTypes.number.isRequired,
   nextPhase: PropTypes.func.isRequired,
+
 };
 
 export default Main;
