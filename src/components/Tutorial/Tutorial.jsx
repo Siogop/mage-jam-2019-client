@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import Character from '../Character/Character';
 
@@ -20,6 +21,7 @@ export default class Tutorial extends Component {
 
   increaseProgress(value) {
     const { progress } = this.state;
+
     const newProgress = progress + value;
     if (newProgress <= 100) {
       this.setState({ progress: newProgress });
@@ -28,10 +30,13 @@ export default class Tutorial extends Component {
 
   loopProgress() {
     const { progress } = this.state;
+    const { nextPhase } = this.props;
     this.increaseProgress();
     if (progress < 100) {
       this.increaseProgress(2);
-      setTimeout(this.loopProgress, 100);
+      setTimeout(this.loopProgress, 300 * Math.random(300));
+    } else if (progress >= 100) {
+      nextPhase();
     }
   }
 
@@ -47,3 +52,7 @@ export default class Tutorial extends Component {
     );
   }
 }
+
+Tutorial.propTypes = {
+  nextPhase: PropTypes.func.isRequired,
+};

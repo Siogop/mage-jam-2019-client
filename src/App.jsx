@@ -18,13 +18,20 @@ export default class App extends Component {
 
     this.renderController = this.renderController.bind(this);
     this.renderTutorial = this.renderTutorial.bind(this);
+    this.nextPhase = this.nextPhase.bind(this);
+  }
+
+  nextPhase() {
+    const { phase } = this.state;
+    const newPhase = phase + 1;
+    this.setState({ phase: newPhase });
   }
 
   renderTutorial() {
     return (
       <Layout>
         <AppHeader />
-        <Tutorial />
+        <Tutorial nextPhase={this.nextPhase} />
         <AppFooter />
       </Layout>
     );
