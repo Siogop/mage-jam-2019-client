@@ -36,9 +36,8 @@ export default class App extends Component {
 
     return (
       <Layout>
-        <AppHeader title={appTitle} />
+        {phase > 0 && <AppHeader title={appTitle} />}
         <Main setAppTitle={this.setAppTitle} nextPhase={this.nextPhase} phase={phase} />
-        <AppFooter />
       </Layout>
     );
   }

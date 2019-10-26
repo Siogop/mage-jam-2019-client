@@ -8,6 +8,11 @@
     width: 190px;
     padding: 4px;
     text-align: center;
+
+    p {
+      opacity: 0;
+      animation: appear .7s .2s forwards;
+    }
     
     &.nes-balloon {
       display: flex;
@@ -30,6 +35,15 @@
   }
   100% {
     transform: rotate(-90deg);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
