@@ -40,7 +40,7 @@ export default class App extends Component {
     return (
       <Layout>
         <AppHeader />
-        <Main phase={phase} />
+        <Main nextPhase={this.nextPhase} phase={phase} />
         <AppFooter />
       </Layout>
     );
