@@ -30,9 +30,7 @@ export default class App extends Component {
   renderTutorial() {
     return (
       <Layout>
-        <AppHeader />
         <Tutorial nextPhase={this.nextPhase} />
-        <AppFooter />
       </Layout>
     );
   }
