@@ -34,7 +34,7 @@ export default class Tutorial extends Component {
     this.increaseProgress();
     if (progress < 100) {
       this.increaseProgress(2);
-      setTimeout(this.loopProgress, 300 * Math.random(300));
+      setTimeout(this.loopProgress, 3 * Math.random(300));
     } else if (progress >= 100) {
       nextPhase();
     }

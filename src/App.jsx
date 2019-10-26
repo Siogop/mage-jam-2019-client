@@ -28,18 +28,21 @@ export default class App extends Component {
   }
 
   renderTutorial() {
+    const { phase } = this.state;
     return (
       <Layout>
         <Tutorial nextPhase={this.nextPhase} />
+        <Main phase={phase} />
       </Layout>
     );
   }
 
   renderController() {
+    const { phase } = this.state;
     return (
       <Layout>
         <AppHeader />
-        <Main />
+        <Main phase={phase} />
         <AppFooter />
       </Layout>
     );
