@@ -1,0 +1,15 @@
+@mixin rwd($size) {
+  @if $size == phone {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: 600px), (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

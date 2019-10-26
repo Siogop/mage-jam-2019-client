@@ -1,12 +1,19 @@
+@import '../../styles/rwd.scss';
+
 .game-pad {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 
   &__controller {
     display: flex;
     justify-content: space-around;
     height: 100%;
+
+    @include rwd(phone) {
+      flex-wrap: wrap;
+    }
   }
 
   .nes-btn {
@@ -17,6 +24,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 8px;
+
+    &.is-error {
+      @include rwd(phone) {          
+        order: -2;
+        flex-basis: 100%;
+      }
+    }
   }
 
   .nes-container {

@@ -1,7 +1,6 @@
 import React from 'react';
 import GamePad from '../GamePad/GamePad';
 import Connector from '../Connector/Connector';
-import './Main.scss';
 
 const WS_ADDRESS = process.env.REACT_APP_WS_ADDRESS || 'wss://ed0e4e1b.ngrok.io/game';
 
