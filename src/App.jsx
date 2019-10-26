@@ -21,7 +21,7 @@ export default class App extends Component {
   }
 
   setAppTitle(appTitle) {
-    this.setState(appTitle);
+    this.setState({ appTitle });
   }
 
   nextPhase() {
