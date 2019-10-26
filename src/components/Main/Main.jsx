@@ -15,6 +15,7 @@ class Main extends React.Component {
       connected: false,
       disconnected: false,
       started: false,
+      characterBalloon: 'Waiting for players...',
     };
     console.log('Main!');
     this.ws = new WebSocket(WS_ADDRESS);
@@ -42,8 +43,12 @@ class Main extends React.Component {
           started: true,
         });
       } else if (message.messageType === 3) {
-        const [name, numPlayers] = message.data.split(' ');
-        setAppTitle(`${name} ${numPlayers}/16`);
+        setAppTitle(message.data);
+      } else if (message.messageType === 5) {
+        const [numPlayers, maxPlayers] = message.data;
+        this.setState({
+          characterBalloon: `${numPlayers} / ${maxPlayers}`,
+        });
       }
     };
 
@@ -59,7 +64,7 @@ class Main extends React.Component {
 
   render() {
     const {
-      connected, disconnected, started,
+      connected, disconnected, started, characterBalloon,
     } = this.state;
     const { phase, nextPhase } = this.props;
     return (
@@ -74,7 +79,7 @@ class Main extends React.Component {
         )}
         { connected && !started && phase > 0 && (
           <Character>
-            <p>Waiting for players.</p>
+            <p>{characterBalloon}</p>
           </Character>
         )}
       </main>
