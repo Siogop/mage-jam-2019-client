@@ -30,6 +30,7 @@ class Main extends React.Component {
     };
 
     this.ws.onmessage = (evt) => {
+      const { setAppTitle } = this.props;
       // listen to data sent from the websocket server
       const message = JSON.parse(evt.data);
       console.log(message);
@@ -40,6 +41,10 @@ class Main extends React.Component {
         this.setState({
           started: true,
         });
+      } else if (message.messageType === 0) {
+        if (message.data.length <= 14) {
+          setAppTitle(message.data);
+        }
       }
     };
 
@@ -81,7 +86,7 @@ class Main extends React.Component {
 Main.propTypes = {
   phase: PropTypes.number.isRequired,
   nextPhase: PropTypes.func.isRequired,
-
+  setAppTitle: PropTypes.func.isRequired,
 };
 
 export default Main;
