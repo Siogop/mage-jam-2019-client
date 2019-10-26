@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Connector.scss';
 
-const CONNECT_MESSAGE = '{"data":"{\\"methodName\\":\\"AddPlayer\\",\\"arguments\\":[\\"left\\"]}"}';
+const data = { methodName: 'AddPlayer', arguments: [] };
 
 class Connector extends React.Component {
   constructor(props) {
@@ -16,11 +17,15 @@ class Connector extends React.Component {
   }
 
   onJoinClick() {
-    const { webSocket, onJoin } = this.props;
+    const { webSocket } = this.props;
     const { team } = this.state;
-    console.log(CONNECT_MESSAGE);
-    webSocket.send(CONNECT_MESSAGE); // send data to the server
-    onJoin();
+    const messageData = data;
+    messageData.arguments.push(team);
+    const message = {
+      data: JSON.stringify(messageData),
+    };
+    console.log(message);
+    webSocket.send(JSON.stringify(message)); // send data to the server
   }
 
   handleChange(event) {
@@ -31,8 +36,8 @@ class Connector extends React.Component {
     const { team } = this.state;
     return (
       <div className="connector">
-        <div className="connector__controller">
-          <input type="text" name="name" value={team} onChange={this.handleChange} />
+        <div className="connector-form nes-field">
+          <input className="nes-input" id="team-input" type="text" name="name" value={team} onChange={this.handleChange} />
           <div className="nes-btn is-primary" role="button" tabIndex={0} onClick={this.onJoinClick}>
             <div>Join</div>
           </div>
@@ -45,7 +50,6 @@ class Connector extends React.Component {
 Connector.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   webSocket: PropTypes.any.isRequired,
-  onJoin: PropTypes.func.isRequired,
 };
 
 export default Connector;

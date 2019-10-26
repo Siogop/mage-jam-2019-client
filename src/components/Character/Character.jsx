@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 export default function Character({ children }) {
   return (
     <div className="character">
-      <p className="character__balloon nes-balloon from-right">
+      <div className="character__balloon nes-balloon from-right">
         {children}
-      </p>
+      </div>
       <i className="character nes-octocat animate" />
     </div>
   );
