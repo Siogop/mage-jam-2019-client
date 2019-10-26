@@ -13,7 +13,6 @@ class Main extends React.Component {
     super(props);
     this.state = {
       connected: false,
-      joined: false,
       disconnected: false,
       started: false,
     };
@@ -36,9 +35,6 @@ class Main extends React.Component {
       console.log(message);
       if (message.messageType === 1) {
         console.log('joined');
-        this.setState({
-          joined: true,
-        });
       } else if (message.messageType === 2) {
         console.log('started');
         this.setState({
@@ -59,20 +55,20 @@ class Main extends React.Component {
 
   render() {
     const {
-      connected, joined, disconnected, started,
+      connected, disconnected, started,
     } = this.state;
     const { phase, nextPhase } = this.props;
     return (
       <main className="main">
-        {connected && !joined && phase > 0 && <Connector webSocket={this.ws} />}
+        {connected && phase > 0 && <Connector webSocket={this.ws} />}
         {phase === 0 && <Tutorial nextPhase={nextPhase} />}
-        {joined && connected && started && phase > 0 && <GamePad webSocket={this.ws} />}
+        { connected && started && phase > 0 && <GamePad webSocket={this.ws} />}
         {disconnected && phase > 0 && (
           <Character>
             <p>Can&apos;t connect to the server.</p>
           </Character>
         )}
-        {joined && connected && !started && phase > 0 && (
+        { connected && !started && phase > 0 && (
           <Character>
             <p>Waiting for players.</p>
           </Character>

@@ -49,10 +49,12 @@ export default class App extends Component {
   render() {
     const { phase } = this.state;
 
-    switch (phase) {
-    case 0: return this.renderTutorial();
-    case 1: return this.renderController();
-    default: return <div />;
-    }
+    return (
+      <Layout>
+        <AppHeader />
+        <Main nextPhase={this.nextPhase} phase={phase} />
+        <AppFooter />
+      </Layout>
+    );
   }
 }
