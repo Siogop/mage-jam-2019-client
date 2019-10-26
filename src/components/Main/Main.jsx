@@ -45,7 +45,7 @@ class Main extends React.Component {
       } else if (message.messageType === 3) {
         setAppTitle(message.data);
       } else if (message.messageType === 5) {
-        const [numPlayers, maxPlayers] = message.data;
+        const [numPlayers, maxPlayers] = message.data.split(' ');
         this.setState({
           characterBalloon: `${numPlayers} / ${maxPlayers}`,
         });
