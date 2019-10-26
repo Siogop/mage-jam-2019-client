@@ -39,7 +39,9 @@ export default class Tutorial extends Component {
     const { progress } = this.state;
     return (
       <main>
-        <Character />
+        <Character>
+          { progress < 50 ? (<p>For best experience use a phone.</p>) : <i className="nes-smartphone change-orientation" />}
+        </Character>
         <ProgressBar value={progress} />
       </main>
     );

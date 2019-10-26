@@ -1,9 +1,32 @@
 .character {
   display: flex;
   align-items: flex-end;
+  margin-bottom: 10px;
 
   &__balloon {
-    max-width: 260px;
+    height: 180px;
+    width: 200px;
     padding: 8px;
+    text-align:center;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nes-smartphone {
+    &.change-orientation {
+      animation: change-orientation 1s .2s forwards;
+    }
   }
 }
+
+@keyframes change-orientation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
