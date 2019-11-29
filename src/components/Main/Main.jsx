@@ -5,7 +5,7 @@ import Connector from '../Connector/Connector';
 import Character from '../Character/Character';
 import Tutorial from '../Tutorial/Tutorial';
 
-const WS_ADDRESS = 'wss://9c4aa0ee.ngrok.io/game';
+const WS_ADDRESS = 'wss://f365ef2e.ngrok.io/game';
 
 class Main extends React.Component {
   // instance of websocket connection as a class property
